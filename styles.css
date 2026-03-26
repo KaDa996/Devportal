@@ -97,3 +97,183 @@ body {
 }
 
 @keyframes fade { from { opacity: .6 } to { opacity: 1 } }
+
+
+/* ================================
+   Stripe-inspired minimal tweaks
+   (monochrome, low-fidelity)
+   ================================ */
+
+/* 1) Type scale & rhythm */
+:root {
+  --fg: #111;
+  --muted: #6b6b6b;
+  --line-strong: #cfcfcf;
+  --bg-elev: #fff;
+  --bg-soft: #f7f7f7;
+  --radius: 6px;
+  --radius-pill: 999px;
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 20px;
+}
+
+body { letter-spacing: .001em; }
+.h1 { font-size: 24px; line-height: 1.25; margin-bottom: var(--space-2); }
+.content { padding: clamp(16px, 3vw, 28px); }
+
+/* 2) Header slimming & tidy actions */
+.site-header {
+  padding: 8px 12px;
+  background: var(--bg-soft);
+}
+.header-actions .btn,
+.header-actions .btn-ghost {
+  border-radius: var(--radius);
+  padding: 6px 10px;
+}
+
+/* 3) Links: quiet by default, underline on hover */
+a, .nav-link {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+a:hover, .nav-link:hover {
+  border-bottom-color: currentColor;
+}
+
+/* 4) Cards: subtle elevation + rounded */
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  transition: box-shadow .15s ease, transform .02s ease;
+}
+.card:hover {
+  box-shadow: 0 1px 0 #000, 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* 5) Eyebrow "pill" labels */
+.eyebrow {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--fg);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: none; /* keep readable */
+  margin-bottom: var(--space-2);
+}
+
+/* Optional: an "aside" look (for Sandbox / Recently viewed) */
+.card.aside {
+  background: #fff;
+  border: 1px solid var(--line-strong);
+}
+
+/* 6) Grid gutters slightly larger on wide screens */
+@media (min-width: 960px) {
+  .grid { gap: 16px; }
+  .grid-2 { gap: 16px; }
+}
+
+/* 7) Tables: compact, zebra header */
+.table {
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius);
+  overflow: hidden; /* clip rounded corners */
+}
+.table th, .table td {
+  border: none; /* rely on outer border only */
+  padding: 8px 10px;
+}
+.table thead th {
+  background: #fafafa;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* 8) Code blocks: left accent, tighter font, soft bg */
+.codebox {
+  border: 1px solid #e5e5e5;
+  background: #fbfbfb;
+  border-left: 3px solid #111;
+  border-radius: var(--radius);
+}
+.codebox pre {
+  font-size: 12.5px;
+  line-height: 1.45;
+  padding-left: 2px;
+}
+
+/* 9) Keycaps (⌘K, etc.) */
+kbd, .keycap {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  padding: 2px 6px;
+  border: 1px solid #cfcfcf;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: inset 0 -1px 0 #e5e5e5;
+  white-space: nowrap;
+}
+
+/* 10) Buttons: light rounding, subtle hover */
+.btn, .btn-ghost {
+  border-radius: var(--radius);
+}
+.btn:hover { background: #efefef; }
+.btn-ghost { background: #fff; }
+.btn-ghost:hover { background: #f5f5f5; }
+
+/* 11) Pills for nav titles (kept understated) */
+.nav-title {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px dashed #dcdcdc;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--muted);
+  letter-spacing: .05em;
+}
+
+/* 12) Sidebar: clearer separation on desktop */
+@media (min-width: 961px) {
+  .sidebar { background: #fcfcfc; }
+}
+
+/* 13) Masked credentials helper (use .mask on spans) */
+.mask {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: .04em;
+  background: #f0f0f0;
+  color: transparent;
+  text-shadow: 0 0 8px #999; /* visually obscures without color */
+  border-radius: 4px;
+  padding: 0 4px;
+  user-select: none;
+}
+
+/* 14) “Hero CTA” rows spacing */
+.panel[data-panel="overview"] .grid.grid-2:first-of-type a {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius);
+  background: #fff;
+}
+.panel[data-panel="overview"] .grid.grid-2:first-of-type a:hover {
+  background: #f6f6f6;
+}
+
+/* 15) Search overlay: slightly softer */
+.search-overlay { background: rgba(0,0,0,.4); }
+.search-box {
+  border-radius: var(--radius);
+  border-color: #ddd;
+}
+#searchInput { border-radius: var(--radius); }
