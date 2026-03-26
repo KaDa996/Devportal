@@ -1,372 +1,161 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Open GI — Developer Portal (Low‑fi Wireframe)</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <!-- Header -->
-  <header class="site-header">
-    <button class="btn-ghost" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <a class="logo" href="#" data-route="overview">Open GI Developer Portal</a>
-    <div class="header-actions">
-      <button class="btn" id="openSearch" type="button">Search ⌘K</button>
-      <a class="btn-ghost" href="#" data-route="support">Support</a>
-      <a class="btn-ghost" href="#" data-route="release-notes">Release notes</a>
+<section class="panel" data-panel="overview" aria-labelledby="overview-title">
+  <!-- Hero -->
+  <h1 class="h1" id="overview-title">Documentation</h1>
+  <p class="muted">Explore our guides and examples to integrate Open GI (Mobius) and ship insurance journeys faster.</p>
+  <div class="grid grid-2" style="margin:8px 0 14px;">
+    #quickstartGet started with Open GI →</a>
+    #journey-qnbExplore all capabilities</a>
+  </div>
+
+  <!-- Top categories (Stripe-style cards) -->
+  <div class="grid">
+    <div class="card">
+      <p class="eyebrow">Journeys</p>
+      <ul class="list">
+        <li>#journey-qnbQuote & Buy</a></li>
+        <li>#journey-mtaMid‑Term Adjustments (MTA)</a></li>
+        <li>#journey-renewalsRenewals</a></li>
+        <li>#journey-portalPolicy self‑service</a></li>
+      </ul>
     </div>
-  </header>
+    <div class="card">
+      <p class="eyebrow">Documents & Data</p>
+      <ul class="list">
+        <li>Document distribution (letters, certificates, schedules)</li>
+        <li>Document retrieval & uploads (photos, signed docs)</li>
+        <li>Client Checks (sanctions & matching)</li>
+        <li>Import Policy Data (migration & history)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Payments & Finance</p>
+      <ul class="list">
+        <li>Tokenised card payments for extensions of cover</li>
+        <li>Finance plans & instalments (read‑only contract outputs)</li>
+        <li>Refunds/credits on MTAs and renewals</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Developer resources</p>
+      <ul class="list">
+        <li>#quickstartQuickstart (first 10 minutes)</a></li>
+        <li>#env-authEnvironments & auth</a></li>
+        <li>#schemasSchema & contracts</a></li>
+        <li>#errorsError catalogue</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <!-- App layout -->
-  <div class="layout">
-    <!-- Navigation -->
-    <nav class="sidebar" id="sidebar" aria-label="Primary">
-      <div class="nav-section">
-        <p class="nav-title">Start here</p>
-        <a class="nav-link" href="#" data-route="overview">Overview</a>
-        <a class="nav-link" href="#" data-route="get-access">Get access</a>
-        <a class="nav-link" href="#" data-route="quickstart">Quickstart</a>
-        <a class="nav-link" href="#" data-route="env-auth">Environments & auth</a>
-      </div>
+  <!-- Recently viewed + Sandbox keys (Stripe-style sidebar blocks) -->
+  <div class="grid grid-2" style="align-items:start;">
+    <div class="card">
+      <p class="eyebrow">Recently viewed</p>
+      <ul class="list">
+        <li>#errorsErrors</a></li>
+        <li>#journey-qnbQuote & Buy</a></li>
+        <li>#api-refAPI reference</a></li>
+      </ul>
+    </div>
 
-      <div class="nav-section">
-        <p class="nav-title">Journeys</p>
-        <a class="nav-link" href="#" data-route="journey-qnb">Quote & Buy</a>
-        <a class="nav-link" href="#" data-route="journey-portal">Policy self‑service</a>
-        <a class="nav-link" href="#" data-route="journey-mta">MTA</a>
-        <a class="nav-link" href="#" data-route="journey-renewals">Renewals</a>
-      </div>
+    <div class="card">
+      <p class="eyebrow">Sandbox</p>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Base URL</td>
+            <td><code>https://sandbox.api.yourapi.com</code></td>
+          </tr>
+          <tr>
+            <td>Client ID</td>
+            <td><code>pk_test_••••••••••••••••</code></td>
+          </tr>
+          <tr>
+            <td>Client Secret</td>
+            <td><code>sk_test_••••••••••••••••</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:6px;">Generate your own credentials in #get-accessGet access</a>. Keep secrets server‑side.</p>
+    </div>
+  </div>
 
-      <div class="nav-section">
-        <p class="nav-title">Reference</p>
-        <a class="nav-link" href="#" data-route="api-ref">API reference</a>
-        <a class="nav-link" href="#" data-route="schemas">Schemas & contracts</a>
-        <a class="nav-link" href="#" data-route="errors">Errors & troubleshooting</a>
-        <a class="nav-link" href="#" data-route="testing">Testing & go‑live</a>
-      </div>
+  <!-- “Developers” quick links -->
+  <div class="grid">
+    <div class="card">
+      <p class="eyebrow">Developers</p>
+      <ul class="list">
+        <li>#env-authSet up your development environment</a></li>
+        <li>#quickstartIntegration quickstarts</a></li>
+        <li>#schemasSchema explorer & examples</a></li>
+        <li>#errorsTroubleshooting & error codes</a></li>
+      </ul>
+    </div>
 
-      <div class="nav-section">
-        <p class="nav-title">Operate</p>
-        <a class="nav-link" href="#" data-route="known-issues">Known issues</a>
-        <a class="nav-link" href="#" data-route="support">Support</a>
-        <a class="nav-link" href="#" data-route="security">Security & compliance</a>
-        <a class="nav-link" href="#" data-route="glossary">Glossary</a>
-        <a class="nav-link" href="#" data-route="tools">Tools & SDKs</a>
-      </div>
-    </nav>
+    <div class="card">
+      <p class="eyebrow">Try it out</p>
+      <ul class="list">
+        <li>Get a quote (minimal request)</li>
+        <li>Accept a quote → create policy</li>
+        <li>Upload a document to a policy</li>
+        <li>Run a Client Check</li>
+        <li>Process a tokenised payment</li>
+      </ul>
+      <p class="muted">Use Postman collections or curl from our examples.</p>
+    </div>
+  </div>
 
-    <!-- Main content -->
-    <main class="content" id="content">
-      <!-- HOMEPAGE / OVERVIEW -->
-      <section class="panel" data-panel="overview" aria-labelledby="overview-title">
-        <h1 class="h1" id="overview-title">Helping you do business, the way you want to</h1>
-
-        <!-- Hero value pillars -->
-        <div class="grid">
-          <div class="card">
-            <p class="eyebrow">Powerful APIs</p>
-            <p>Create user‑friendly customer experiences without juggling multiple systems. Perform core broking operations via clean, predictable endpoints.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Integrations</p>
-            <p>Leverage an extensive network of third‑party integrations and partner solutions. Run with market‑leading cloud security and reliability.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Flexibility</p>
-            <p>Control your online quote and buy experience and offer customer self‑service that reduces admin and speeds up every interaction.</p>
-          </div>
-        </div>
-
-        <!-- Designed for brokers -->
-        <div class="diagram" role="region" aria-label="Designed for brokers">
-          <p class="eyebrow">Designed with brokers in mind</p>
-          <p>The portal gives general insurance brokers a single, cloud‑native platform to manage broking, automate routine work, and drive customer engagement. Hosted on Microsoft Azure with seamless updates for 24/7 accessibility and maximum uptime.</p>
-        </div>
-
-        <!-- Audience at-a-glance -->
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">For Developers</p>
-            <ul class="list">
-              <li>Easy integration paths</li>
-              <li>Testing environment and sample data</li>
-              <li>Built with security as a first principle</li>
-            </ul>
-          </div>
-          <div class="card">
-            <p class="eyebrow">For Business</p>
-            <ul class="list">
-              <li>Safe, secure platform</li>
-              <li>Insurance‑specific flows out of the box</li>
-              <li>Responsive developer support</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Business use cases -->
-        <div class="grid">
-          <div class="card">
-            <p class="eyebrow">New Business</p>
-            <p>Create quotes and purchase new policies online across different lines of business.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Renewals</p>
-            <p>Extend insurance where there has not been a break in cover.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">MTA</p>
-            <p>Support mid‑term changes on a temporary or permanent basis, including non‑rated amendments.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Claims</p>
-            <p>Create new claims or edit existing claims at policy level, with LOB‑specific details.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Document Distribution</p>
-            <p>Automate distribution of letters, certificates, schedules, and retrieve signed documents or photos.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Payments</p>
-            <p>Use tokenised card payments for subsequent transactions such as extensions of cover.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Cancellation</p>
-            <p>Support cancellations when customers do not wish to continue.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Client Checks</p>
-            <p>Run sanction checks, retrieve matches and details, update notes or overridden matches.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Import Policy Data</p>
-            <p>Import policies from external systems or add historical records for migration with full audit trails.</p>
-          </div>
-        </div>
-
-        <!-- Platform capabilities -->
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">Full‑featured APIs</p>
-            <p>Build faster using Mobius APIs for everyday business operations. Test requests and responses before integrating in production.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">User‑friendly resources</p>
-            <p>Get started immediately with guides, examples, and try‑outs that make implementation straightforward.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Real‑time reporting</p>
-            <p>Monitor API usage and performance with intelligent, real‑time insights.</p>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Support</p>
-            <p>Access responsive technical support to keep work moving.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- OTHER PANELS: keep low‑fi structure; you can fill these out later -->
-      <section class="panel hidden" data-panel="get-access">
-        <h1 class="h1">Get access</h1>
-        <ol class="steps">
-          <li>Register a developer account</li>
-          <li>Create an application</li>
-          <li>Generate credentials</li>
-          <li>Use token in Authorization header</li>
-        </ol>
-        <div class="note">Keep test and production clearly separated.</div>
-      </section>
-
-      <section class="panel hidden" data-panel="quickstart">
-        <h1 class="h1">Quickstart — first 10 minutes</h1>
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">1) Get a token</p>
-            <div class="codebox"><pre>
+  <!-- “Shell” style box with runnable commands (Stripe has Stripe Shell) -->
+  <div class="diagram" role="region" aria-label="Open GI Shell">
+    <p class="eyebrow">Welcome to Open GI Shell</p>
+    <p class="muted">Browser‑based try‑outs coming soon. For now, use curl/Postman with your sandbox keys.</p>
+    <div class="codebox"><pre>
+# 1) Obtain token
 curl -X POST https://sandbox.api.yourapi.com/oauth/token \
-  -d 'client_id=...' -d 'client_secret=...'
-            </pre></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">2) Make your first call</p>
-            <div class="codebox"><pre>
+  -d "client_id=YOUR_CLIENT_ID" \
+  -d "client_secret=YOUR_SECRET"
+
+# 2) Get a quote (minimal)
 curl -H "Authorization: Bearer &lt;token&gt;" \
-  https://sandbox.api.yourapi.com/ping
-            </pre></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">3) Success response</p>
-            <div class="codebox"><pre>
-HTTP/1.1 200 OK
-{"status":"ok"}
-            </pre></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">4) If it fails</p>
-            <div class="codebox"><pre>
-HTTP/1.1 401 Unauthorized
-{"type":"about:blank","title":"Invalid token"}
-            </pre></div>
-          </div>
-        </div>
-      </section>
+  -H "Content-Type: application/json" \
+  -d '{"risk":{"driverAge":30,"carValue":8000}}' \
+  https://sandbox.api.yourapi.com/quotes
 
-      <section class="panel hidden" data-panel="env-auth">
-        <h1 class="h1">Environments & auth</h1>
-        <table class="table">
-          <thead><tr><th>Environment</th><th>Base URL</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td>Sandbox</td><td>https://sandbox.api.yourapi.com</td><td>Predictable test data</td></tr>
-            <tr><td>Production</td><td>https://api.yourapi.com</td><td>Approval required</td></tr>
-          </tbody>
-        </table>
-        <div class="warning">Security tip: never expose secrets in client code.</div>
-      </section>
+# 3) Accept quote → policy
+curl -X POST -H "Authorization: Bearer &lt;token&gt;" \
+  https://sandbox.api.yourapi.com/quotes/q_123/accept
+    </pre></div>
+  </div>
 
-      <section class="panel hidden" data-panel="journey-qnb">
-        <h1 class="h1">Journey: Quote & Buy</h1>
-        <div class="diagram">
-          <pre>
-[UI] -> [POST /quotes] -> [200 quoteId]
-[UI] -> [POST /quotes/{id}/accept] -> [201 policyId]
-[UI] -> [POST /payments] -> [200 status=paid]
-          </pre>
-        </div>
-      </section>
+  <!-- Browse by capability (Stripe’s “Browse by product”) -->
+  <p class="eyebrow" style="margin-top:14px;">Browse by capability</p>
+  <div class="grid">
+    <div class="card">
+      <p class="eyebrow">Payments</p>
+      <p class="muted">Tokenised card flows, plan outputs, refunds/credits.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Documents</p>
+      <p class="muted">Distribution, retrieval, uploads, outstanding requests.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Client Checks</p>
+      <p class="muted">Sanction checks, matches, overrides, audit notes.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Admin & Ops</p>
+      <p class="muted">Release notes, known issues, versioning policy.</p>
+    </div>
+  </div>
 
-      <section class="panel hidden" data-panel="journey-portal">
-        <h1 class="h1">Journey: Policy self‑service</h1>
-        <ul class="list">
-          <li>List policies</li>
-          <li>List and upload documents</li>
-          <li>Outstanding requests</li>
-        </ul>
-      </section>
-
-      <section class="panel hidden" data-panel="journey-mta">
-        <h1 class="h1">Journey: MTA</h1>
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">Editable fields</p>
-            <ul class="list">
-              <li>Address</li>
-              <li>Mileage</li>
-              <li>Additional drivers</li>
-            </ul>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Delta model</p>
-            <div class="codebox"><pre>
-PATCH /policies/{id}
-{"delta":{"mileage":{"from":8000,"to":12000}}}
-            </pre></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel hidden" data-panel="journey-renewals">
-        <h1 class="h1">Journey: Renewals</h1>
-        <p class="muted">Extend cover where there has not been a break in cover.</p>
-      </section>
-
-      <section class="panel hidden" data-panel="api-ref">
-        <h1 class="h1">API reference</h1>
-        <p class="muted">This section will be auto‑generated from OpenAPI.</p>
-      </section>
-
-      <section class="panel hidden" data-panel="schemas">
-        <h1 class="h1">Schemas & contracts</h1>
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">Pricing contract</p>
-            <div class="codebox"><pre>
-{
- "basePremium": 240.00,
- "fees": [{"type":"admin","amount":20.00}],
- "taxes": [{"type":"IPT","amount":28.80}],
- "excesses": {"voluntary":150,"compulsory":250},
- "total": 288.80,
- "currency":"GBP"
-}
-            </pre></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Status model</p>
-            <div class="codebox"><pre>
-"quoteStatus" ∈ {"OK","REFERRED","DECLINED"}
-            </pre></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel hidden" data-panel="errors">
-        <h1 class="h1">Errors & troubleshooting</h1>
-        <div class="grid grid-2">
-          <div class="card">
-            <p class="eyebrow">Standard envelope</p>
-            <div class="codebox"><pre>
-Content-Type: application/problem+json
-{
- "type":"https://yourapi.com/problems/validation",
- "title":"Validation failed",
- "status":422,
- "detail":"driverAge must be ≥ 17",
- "instance":"/quotes",
- "errors":[{"field":"driverAge","code":"min"}]
-}
-            </pre></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Common fixes</p>
-            <ul class="list">
-              <li>401: check token header</li>
-              <li>422: fix field constraints</li>
-              <li>409: check resource state</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel hidden" data-panel="testing">
-        <h1 class="h1">Testing & go‑live</h1>
-        <ol class="steps">
-          <li>Run golden‑path scripts per journey</li>
-          <li>Verify expected outcomes in PAS</li>
-          <li>Complete security checklist</li>
-          <li>Enable production access</li>
-        </ol>
-      </section>
-
-      <section class="panel hidden" data-panel="release-notes">
-        <h1 class="h1">Release notes</h1>
-        <ul class="list">
-          <li>[YYYY‑MM‑DD] Added homepage content and business use cases</li>
-          <li>[YYYY‑MM‑DD] Introduced error taxonomy draft</li>
-        </ul>
-      </section>
-
-      <section class="panel hidden" data-panel="known-issues">
-        <h1 class="h1">Known issues</h1>
-        <p class="muted">Make this page searchable and visible to authenticated users.</p>
-      </section>
-
-      <section class="panel hidden" data-panel="support">
-        <h1 class="h1">Support</h1>
-        <p>Email support@example.com. Response within 2 business days.</p>
-      </section>
-
-      <section class="panel hidden" data-panel="security">
-        <h1 class="h1">Security & compliance</h1>
-        <p class="muted">High‑level security posture and audit readiness go here.</p>
-      </section>
-
-      <section class="panel hidden" data-panel="glossary">
-        <h1 class="h1">Glossary</h1>
-        <ul class="list">
-          <li><strong>Excess</strong>: amount the policyholder pays on a claim</li>
-          <li><strong>Referral</strong>: manual review required</li>
-        </ul>
-      </section>
-
-      <section class="panel hidden" data-panel="tools">
-        <h1 class="h1">Tools & SDKs</h1>
+  <!-- Footer-like prompts (as in Stripe’s page) -->
+  <div class="grid grid-2" style="margin-top:12px;">
+    <div class="card">
+      <p class="muted">Need help? #supportContact Support</a>.</p>
+      <p class="muted">Check out our #release-noteschangelog</a>.</p>
+    </div>
+    <div class="card">
+      <p class="muted">Questions? Contact Sales.</p>
+      <p class="muted">Powered by Mobius · Hosted on Microsoft Azure.</p>
+    </div>
+  </div>
+</section>
