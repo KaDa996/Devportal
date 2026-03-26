@@ -1,0 +1,99 @@
+:root {
+  --bg: #fff;
+  --ink: #111;
+  --muted: #666;
+  --line: #ddd;
+  --accent: #000;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font: 16px/1.4 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-bottom: 1px solid var(--line);
+  background: #f7f7f7;
+}
+.logo { font-weight: 700; color: var(--ink); text-decoration: none; }
+.header-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.btn, .btn-ghost {
+  border: 1px solid var(--ink); background: #fff; color: var(--ink);
+  padding: 6px 10px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+.btn:hover, .btn-ghost:hover { background: #eee; }
+
+/* Layout */
+.layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 48px); }
+.sidebar {
+  border-right: 1px solid var(--line); padding: 16px; background: #fafafa;
+}
+.nav-section + .nav-section { margin-top: 18px; }
+.nav-title { margin: 0 0 6px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.nav-link {
+  display: block; padding: 6px 8px; text-decoration: none; color: var(--ink); border: 1px dashed transparent;
+}
+.nav-link:hover { border-color: var(--line); background: #f2f2f2; }
+
+.content { padding: 20px; }
+.panel { animation: fade .12s ease-in; }
+.hidden { display: none; }
+
+.h1 { margin: 0 0 12px; font-size: 22px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; letter-spacing: .04em; }
+.muted { color: var(--muted); }
+.warning { border: 1px solid var(--ink); padding: 8px; background: #fff; margin-top: 10px; }
+.note { color: var(--muted); margin-top: 8px; }
+
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card { border: 1px solid var(--ink); padding: 12px; background: #fff; }
+.placeholder { border: 2px dashed var(--line); background: repeating-linear-gradient(45deg,#fafafa,#fafafa 6px,#f0f0f0 6px,#f0f0f0 12px); height: 100px; }
+.placeholder.tall { height: 160px; }
+.diagram { border: 1px solid var(--ink); padding: 12px; background: #fff; margin-bottom: 12px; }
+
+.codebox { border: 1px solid var(--ink); background: #fff; padding: 8px; overflow: auto; }
+.codebox pre { margin: 0; font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.codebox.tall pre { min-height: 120px; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border: 1px solid var(--ink); padding: 6px 8px; text-align: left; }
+.steps { margin: 0; padding-left: 18px; }
+.list { margin: 0; padding-left: 18px; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line); padding: 12px; text-align: center; background: #fafafa;
+}
+
+/* Search overlay */
+.search-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  display: grid; place-items: center;
+}
+.search-box {
+  width: min(680px, 92vw); background: #fff; border: 1px solid var(--ink);
+  padding: 12px; display: grid; gap: 8px;
+}
+#searchInput { width: 100%; font-size: 16px; padding: 8px; border: 1px solid var(--ink); }
+.search-results { max-height: 40vh; overflow: auto; border: 1px dashed var(--line); padding: 6px; }
+
+/* Mobile */
+#menuToggle { display: none; }
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: fixed; z-index: 15; inset: 48px 0 0 0; transform: translateX(-100%); transition: transform .15s ease; width: 80vw; max-width: 360px; background: #fff; }
+  .sidebar.open { transform: translateX(0); box-shadow: 2px 0 0 #000; }
+  #menuToggle { display: inline-block; }
+  .grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+@keyframes fade { from { opacity: .6 } to { opacity: 1 } }

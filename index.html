@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Developer Portal — Low‑fi Wireframe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <button class="btn-ghost" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <a class="logo" href="#" data-route="overview">YourAPI</a>
+    <div class="header-actions">
+      <button class="btn" id="openSearch">Search ⌘K</button>
+      <a class="btn-ghost" href="#" data-route="support">Support</a>
+      <a class="btn-ghost" href="#" data-route="release-notes">Release notes</a>
+    </div>
+  </header>
+
+  <!-- App layout -->
+  <div class="layout">
+    <!-- Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-title">Start here</p>
+        <a href="#" data-route="overview" class="nav-link">Overview</a>
+        <a href="#" data-route="get-access" class="nav-link">Get access</a>
+        <a href="#" data-route="quickstart" class="nav-link">Quickstart</a>
+        <a href="#" data-route="env-auth" class="nav-link">Environments & auth</a>
+      </div>
+
+      <div class="nav-section">
+        <p class="nav-title">Journeys</p>
+        <a href="#" data-route="journey-qnb" class="nav-link">Quote & Buy</a>
+        <a href="#" data-route="journey-portal" class="nav-link">Policy self‑service</a>
+        <a href="#" data-route="journey-mta" class="nav-link">MTA</a>
+        <a href="#" data-route="journey-renewals" class="nav-link">Renewals</a>
+      </div>
+
+      <div class="nav-section">
+        <p class="nav-title">Reference</p>
+        <a href="#" data-route="api-ref" class="nav-link">API reference</a>
+        <a href="#" data-route="schemas" class="nav-link">Schemas & contracts</a>
+        <a href="#" data-route="errors" class="nav-link">Errors & troubleshooting</a>
+        <a href="#" data-route="testing" class="nav-link">Testing & go‑live</a>
+      </div>
+
+      <div class="nav-section">
+        <p class="nav-title">Operate</p>
+        <a href="#" data-route="known-issues" class="nav-link">Known issues</a>
+        <a href="#" data-route="support" class="nav-link">Support</a>
+        <a href="#" data-route="security" class="nav-link">Security & compliance</a>
+        <a href="#" data-route="glossary" class="nav-link">Glossary</a>
+        <a href="#" data-route="tools" class="nav-link">Tools & SDKs</a>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="content" id="content">
+      <!-- Panels are plain placeholders. Swap content via JS by data-route. -->
+
+      <section class="panel" data-panel="overview">
+        <h1 class="h1">Overview</h1>
+        <div class="grid">
+          <div class="card">
+            <p class="eyebrow">Why integrate</p>
+            <div class="placeholder"></div>
+            <p class="muted">Summary of capabilities and supported journeys.</p>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Common scenarios</p>
+            <ul class="list">
+              <li>Quote & Buy</li>
+              <li>Policy self‑service</li>
+              <li>MTA</li>
+              <li>Renewals</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p class="eyebrow">What you get today</p>
+            <ul class="list">
+              <li>Sandbox access</li>
+              <li>Quickstart to first call</li>
+              <li>Journey guides and examples</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="get-access">
+        <h1 class="h1">Get access</h1>
+        <ol class="steps">
+          <li>Register developer account</li>
+          <li>Create application</li>
+          <li>Generate credentials</li>
+          <li>Use token in Authorization header</li>
+        </ol>
+        <div class="codebox"><pre>
+POST /apps
+Authorization: Bearer <token>
+        </pre></div>
+        <div class="note">Note: clearly separate test vs production details here.</div>
+      </section>
+
+      <section class="panel hidden" data-panel="quickstart">
+        <h1 class="h1">Quickstart — first 10 minutes</h1>
+        <div class="grid grid-2">
+          <div class="card">
+            <p class="eyebrow">1) Get a token</p>
+            <div class="codebox"><pre>
+curl -X POST https://sandbox.api.yourapi.com/oauth/token \
+  -d 'client_id=...' -d 'client_secret=...'
+            </pre></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">2) Make your first call</p>
+            <div class="codebox"><pre>
+curl -H "Authorization: Bearer &lt;token&gt;" \
+  https://sandbox.api.yourapi.com/ping
+            </pre></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">3) See a working response</p>
+            <div class="codebox"><pre>
+HTTP/1.1 200 OK
+{"status":"ok"}
+            </pre></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">4) If it fails</p>
+            <div class="codebox"><pre>
+HTTP/1.1 401 Unauthorized
+{"type":"about:blank","title":"Invalid token"}
+            </pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="env-auth">
+        <h1 class="h1">Environments & auth</h1>
+        <table class="table">
+          <thead><tr><th>Environment</th><th>Base URL</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Sandbox</td><td>https://sandbox.api.yourapi.com</td><td>Predictable test data</td></tr>
+            <tr><td>Production</td><td>https://api.yourapi.com</td><td>Approval required</td></tr>
+          </tbody>
+        </table>
+        <div class="warning">Security tip: never expose secrets in client code.</div>
+      </section>
+
+      <section class="panel hidden" data-panel="journey-qnb">
+        <h1 class="h1">Journey: Quote & Buy</h1>
+        <div class="diagram">
+          <p class="muted">Sequence diagram placeholder</p>
+          <pre>
+[UI] -> [POST /quotes] -> [200 quoteId]
+[UI] -> [POST /quotes/{id}/accept] -> [201 policyId]
+[UI] -> [POST /payments] -> [200 status=paid]
+          </pre>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <p class="eyebrow">Minimal request</p>
+            <div class="codebox"><pre>
+POST /quotes
+{"risk":{"driverAge":30,"carValue":8000}}
+            </pre></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Pricing contract preview</p>
+            <div class="codebox tall"><pre>
+{
+ "basePremium": 240.00,
+ "fees": [{"type":"admin","amount":20.00}],
+ "taxes": [{"type":"IPT","amount":28.80}],
+ "excesses": {"voluntary":150,"compulsory":250},
+ "total": 288.80,
+ "currency":"GBP"
+}
+            </pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="journey-portal">
+        <h1 class="h1">Journey: Policy self‑service</h1>
+        <ul class="list">
+          <li>List policies for a user</li>
+          <li>List and upload documents</li>
+          <li>Outstanding requests</li>
+        </ul>
+        <div class="placeholder tall"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="journey-mta">
+        <h1 class="h1">Journey: MTA</h1>
+        <div class="grid grid-2">
+          <div class="card">
+            <p class="eyebrow">Editable fields</p>
+            <ul class="list">
+              <li>Address</li>
+              <li>Mileage</li>
+              <li>Additional drivers</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Delta model</p>
+            <div class="codebox"><pre>
+PATCH /policies/{id}
+{"delta":{"mileage":{"from":8000,"to":12000}}}
+            </pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="journey-renewals">
+        <h1 class="h1">Journey: Renewals</h1>
+        <div class="placeholder tall"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="api-ref">
+        <h1 class="h1">API reference</h1>
+        <div class="placeholder"></div>
+        <p class="muted">This section will be auto‑generated from OpenAPI.</p>
+      </section>
+
+      <section class="panel hidden" data-panel="schemas">
+        <h1 class="h1">Schemas & contracts</h1>
+        <div class="grid grid-2">
+          <div class="card">
+            <p class="eyebrow">Field meaning</p>
+            <table class="table">
+              <thead><tr><th>Field</th><th>Meaning</th><th>Constraints</th></tr></thead>
+              <tbody>
+                <tr><td>basePremium</td><td>Premium before taxes and fees</td><td>decimal(2)</td></tr>
+                <tr><td>total</td><td>Amount due</td><td>decimal(2)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Status model</p>
+            <div class="codebox"><pre>
+"quoteStatus" ∈ {"OK","REFERRED","DECLINED"}
+            </pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="errors">
+        <h1 class="h1">Errors & troubleshooting</h1>
+        <div class="grid grid-2">
+          <div class="card">
+            <p class="eyebrow">Standard envelope</p>
+            <div class="codebox"><pre>
+Content-Type: application/problem+json
+{
+ "type":"https://yourapi.com/problems/validation",
+ "title":"Validation failed",
+ "status":422,
+ "detail":"driverAge must be ≥ 17",
+ "instance":"/quotes",
+ "errors":[{"field":"driverAge","code":"min"}]
+}
+            </pre></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Common fixes</p>
+            <ul class="list">
+              <li>401: check token header</li>
+              <li>422: fix field constraints</li>
+              <li>409: check resource state</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="testing">
+        <h1 class="h1">Testing & go‑live</h1>
+        <ol class="steps">
+          <li>Run golden‑path scripts</li>
+          <li>Verify PAS outcomes</li>
+          <li>Security checklist</li>
+          <li>Enable production access</li>
+        </ol>
+        <div class="placeholder"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="release-notes">
+        <h1 class="h1">Release notes</h1>
+        <ul class="list">
+          <li>[YYYY‑MM‑DD] Added Quote & Buy examples</li>
+          <li>[YYYY‑MM‑DD] Introduced error taxonomy</li>
+        </ul>
+      </section>
+
+      <section class="panel hidden" data-panel="known-issues">
+        <h1 class="h1">Known issues</h1>
+        <div class="placeholder tall"></div>
+        <p class="muted">Make this searchable for authenticated users.</p>
+      </section>
+
+      <section class="panel hidden" data-panel="support">
+        <h1 class="h1">Support</h1>
+        <p>Email support@example.com. Response within 2 business days.</p>
+        <div class="placeholder"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="security">
+        <h1 class="h1">Security & compliance</h1>
+        <div class="placeholder tall"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="glossary">
+        <h1 class="h1">Glossary</h1>
+        <ul class="list">
+          <li><strong>Excess</strong>: the amount paid by the policyholder on a claim</li>
+          <li><strong>Referral</strong>: manual review required</li>
+        </ul>
+      </section>
+
+      <section class="panel hidden" data-panel="tools">
+        <h1 class="h1">Tools & SDKs</h1>
+        <div class="placeholder"></div>
+        <p class="muted">Postman collections and sample apps go here.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Search overlay -->
+  <div class="search-overlay hidden" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-box">
+      <input id="searchInput" placeholder="Type to filter sections…" />
+      <div class="search-results" id="searchResults"></div>
+      <button class="btn" id="closeSearch">Close</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="muted">Low‑fi wireframe. Content is placeholder.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
